@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="icon" type="image/x-icon" href="./img/wasfa-high-resolution-logo-black.png">
+    <link rel="stylesheet" href="{% static './css/styling.css'%}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+</head>
+{% include 'parts\admin_navbar.html'%}
+{% block content%}
+<body style="background-image:url(./img/back2.jpg) ; margin: 0; padding: 0;">
+
+<br>
+<br>
+    <div class="content">
+        <center>
+            <div class="home-vid">
+                <img src="{% static './imgs/homepagephoto.png'%}" alt="no home page photo" width="60%" height="400px">
+                </div>
+                <br>
+                <br>
+                <div class="under-vid" >
+                 <h2 style="font-family: Lucida Handwriting, cursive; font-size: xx-large ; color: darkolivegreen;">Here You Will Find Out Your Favourite Dish</h2>
+                </div>
+                <div class="buttons">
+                 <a href="./all-admin.html">
+                     <button>ALL RECIPES</button>
+                 </a>
+                 <br><br>
+                 <a href="./Meal_of_the_day.html">
+                     <button>MEAL OF THE DAY</button>
+                 </a>
+                </div>
+                <br>
+                <br>
+             <img src="{% static './imgs/main.jpg'%}" alt=" no maincourse" width="400px">
+             <img src="{% static './imgs/Appetizers.jpg'%}" alt="no Appetizers" width="400px">
+             <br>
+             <img src="{% static './imgs/desserts.jpg'%}" alt="no desserts" width="400px">
+             <img src="{% static './imgs/meall.jpg'%}" alt="no meal" width="400px">
+     </div>
+</center>
+
+
+<br>
+<br>
+</body>
+</html>
+{% endblock content%}
+{% include 'parts\footer.html'%}
+

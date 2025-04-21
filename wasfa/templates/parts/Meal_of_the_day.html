@@ -1,0 +1,54 @@
+{% load static %}
+{% include 'parts/unsigned.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Get Your Meal For Today</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styling.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  </head>
+  <body style="margin: 0; padding: 0; background-color: #FEFAE0;">
+    <center>
+    <h1 style="text-align: center; color: #5F6F52;">MEAL OF THE DAY</h1><br>
+    <hr style="color:#C4661F;">
+    <br>
+    <h2>1-Main Course :</h2>    
+    <h2 style="text-align:center; color: #783d19;">PAN SEARED STEAK</h2>
+    <div class="main-course" style="padding: 20px;"> 
+      <div>
+        <p style="color:#C4661F; font-size: 22px; font-family: 'Times New Roman', Times, serif;">Skip the expensive steakhouse prices and make restaurant quality Pan Seared Steak at home! It's golden brown, juicy and butter basted with garlic and rosemary. It comes together in 10 minutes and is perfect for special occasions or date night dinner in!</p>
+        <br>
+        <h3 style="color:#C4661F;">Click here to get it: <a href="./steak.html">PAN SEARED STEAK</a></h3>
+      </div>
+    </div>
+    <hr style="color:#C4661F;">
+    <h2>2-Appetizer :</h2>
+    <h2 style="color: #783d19;">CREAMY MUSHROOM SOUP</h2>
+    <div class="appetizers" style="padding: 20px;">
+      <div>
+        <p style="color:#C4661F; font-size: 22px; font-family: 'Times New Roman', Times, serif;">This homemade Cream of Mushroom Soup is pure comfort in a bowl. Sautéed buttery mushrooms and onions are in a rich, creamy and velvety soup that is prepared in just 30 minutes. You'll never want to open a can of mushroom soup again after you see just how simple it is to make at home!</p>
+        <br>
+        <h3 style="color:#C4661F;">Click here to get it: <a href="./mushroom-soup.html">CREAMY MUSHROOM SOUP</a></h3>
+      </div>
+    </div>  
+    <hr style="color:#C4661F;">
+    <h2>3-Dessert :</h2>
+    <h2 style="color: #783d19;">CINNAMON ROLLS</h2>
+    <div class="dessert" style="padding: 20px;">
+      <div>
+        <br>
+        <p style="color:#C4661F; font-size: 22px; font-family: 'Times New Roman', Times, serif;">Warm & gooey brown butter cinnamon rolls smothered with a sweet cream cheese icing - the best sunday morning breakfast</p>
+        <br>
+        <h3 style="text-align:left; color:#C4661F;">Click here to get it: <a href="./cinnamon.html">CINNAMON ROLLS</a></h3>
+      </div>
+    </div>
+    <br><br>
+  </center>
+
+  </body>
+</html>
+{% endblock content %}
+{% include 'parts/footer.html' %}

@@ -1,0 +1,148 @@
+{% load static %}
+<!-- parts/add_recipe.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styling.css' %}">
+    <link rel="icon" type="image/x-icon" href="./img/wasfa-high-resolution-logo-black.png">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipe</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .ingredient-form,
+        .step-form {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .add-remove-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .add-remove-buttons button {
+            margin: 0 5px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body style="margin: 0px; padding: 0px;">
+    <ul id="nav">
+        <div class="nav-img"> 
+            <img src="{% static './imgs/white-logo.png'%}" alt="no nav photo" width="120px">
+        </div>
+       
+    </ul>
+    <center>
+    <h1>Add New Recipe</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ recipe_form.as_p }}
+
+        <h2>Ingredients</h2>
+        <div id="ingredients-formset">
+            {{ ingredient_formset.management_form }}
+            {% for form in ingredient_formset %}
+                <div class="ingredient-form">
+                    {{ form.as_p }}
+                </div>
+            {% endfor %}
+        </div>
+        <button type="button" id="add-ingredient">Add Ingredient</button>
+
+        <h2>Steps</h2>
+        <div id="steps-formset">
+            {{ step_formset.management_form }}
+            {% for form in step_formset %}
+                <div class="step-form">
+                    {{ form.as_p }}
+                </div>
+            {% endfor %}
+        </div>
+        <button type="button" id="add-step">Add Step</button>
+        <br>
+        <br>
+        <br>
+        <button type="submit">Save</button>
+    </form>
+</center>
+<br><br>
+    <script>
+        $(document).ready(function() {
+            var ingredientFormset = $('#ingredients-formset');
+            var ingredientTotalForms = $('#id_ingredients-TOTAL_FORMS');
+            var stepFormset = $('#steps-formset');
+            var stepTotalForms = $('#id_steps-TOTAL_FORMS');
+
+            $('#add-ingredient').click(function() {
+                var formIndex = ingredientTotalForms.val();
+                var formHtml = ingredientFormset.find('.ingredient-form:first').clone();
+                formHtml.find(':input').each(function() {
+                    var name = $(this).attr('name').replace('-0-', '-' + formIndex + '-');
+                    var id = $(this).attr('id').replace('-0-', '-' + formIndex + '-');
+                    $(this).attr({'name': name, 'id': id}).val('');
+                });
+                formHtml.appendTo(ingredientFormset);
+                ingredientTotalForms.val(parseInt(formIndex) + 1);
+            });
+
+            $('#add-step').click(function() {
+                var formIndex = stepTotalForms.val();
+                var formHtml = stepFormset.find('.step-form:first').clone();
+                formHtml.find(':input').each(function() {
+                    var name = $(this).attr('name').replace('-0-', '-' + formIndex + '-');
+                    var id = $(this).attr('id').replace('-0-', '-' + formIndex + '-');
+                    $(this).attr({'name': name, 'id': id}).val('');
+                });
+                formHtml.appendTo(stepFormset);
+                stepTotalForms.val(parseInt(formIndex) + 1);
+            });
+        });
+    </script>
+    {% include 'parts\footer.html'%}
+</body>
+</html>

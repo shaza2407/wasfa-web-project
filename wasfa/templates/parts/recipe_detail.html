@@ -1,0 +1,43 @@
+<!-- templates/parts/recipe_detail.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/recipes-out-style.css'%}">
+    <link rel="icon" type="image/x-icon" href="./img/wasfa-high-resolution-logo-black.png">
+    <link rel="stylesheet" href="{% static './css/styling.css'%}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ recipe.name }}</title>
+</head>
+<body style="padding: 0; margin: 0;"></body>
+<ul id="nav">
+    <div class="nav-img"> 
+        <img src="{% static './imgs/white-logo.png'%}" alt="no nav photo" width="120px">
+    </div>
+   
+</ul>
+
+    <h1>{{ recipe.name }}</h1>
+    <h3>Course Type: {{ recipe.course_type }}</h3>
+    <h2>Ingredients</h2>
+    <ul>
+        {% for ingredient in recipe.ingredients.all %}
+            <li>{{ ingredient.quantity }} of {{ ingredient.name }}</li>
+        {% endfor %}
+    </ul>
+    <p><h3>Notes:</h3> {{ recipe.notes }}</p>
+    <h2>Steps</h2>
+    <ol>
+        {% for step in recipe.steps.all %}
+            <li>{{ step.description }}</li>
+        {% endfor %}
+    </ol>
+    {% include 'parts\footer.html'%}
+
+</body>
+
+</html>

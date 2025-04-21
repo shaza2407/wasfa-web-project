@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/recipes-out-style.css'%}">
+    <link rel="icon" type="image/x-icon" href="./img/wasfa-high-resolution-logo-black.png">
+    <link rel="stylesheet" href="{% static './css/styling.css'%}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>recepies</title>
+</head>
+<body style="padding: 0; margin: 0;">
+    {% include 'parts/admin_navbar.html'%}
+    {% block content%}
+    <center>
+    <h1>A V A I L A B L E &nbsp; R E C I P E S</h1>
+    <hr>
+    <div class="bar">
+        <form action="{% url 'search_results' %}" method="GET" >
+            <input type="text" name="q" placeholder="Search by recipe name">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <br>
+    <h5 style="color: red;">*Logging in as user allows you to add recipe to favourite</h5>
+    <br>
+    <div id="container">
+    <table>
+        {% for x in recipes %}
+            <tr id="{{x.id}}">
+                <td>{{x.name}}</td>
+                <td>{{x.course_type}}</td>
+                <td ><a href="{% url 'recipe_detail' slug=x.slug %}">View Recipe</a></td>
+    
+            </tr>
+        {% endfor %}
+        </table>
+</center>
+</div>
+    <br>
+    <script src="./JS/favorite.js"></script>
+    
+
+    {% endblock content %}
+    {% include 'parts\footer.html'%}
+</body>
+</html>

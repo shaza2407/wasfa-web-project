@@ -1,0 +1,82 @@
+body{
+    background-color: #FEFAE0; 
+    font-size: large;
+}
+h1{
+    text-align: center; 
+    color: #5F6F52;
+}
+h2{
+  color: #783D19; 
+  text-align: center;
+}
+h3{
+  color: #C4661F;
+}
+.imgout{
+  border-radius: 25px;
+  width: 230px;
+  height: 230px;
+  margin-right: 15px;
+}
+.imgUp{
+  height: 450px; 
+  width: 350px; 
+  margin-right: 15px;
+}
+.imgdown{
+  height: 800px;
+  margin-left: 30px;
+}
+P{
+  text-decoration: none;
+  color: #9c6d3d;
+}
+.recipeBox{
+    padding: 20px;
+    border: 2px solid #783D19;
+    border-radius: 25px;
+    display: flex; 
+    border-style: ridge;
+    
+}
+:hover.recipeBox{
+    background-color: #F9EBC7;
+    margin: 10px;
+}
+.linkBox{
+    color: #783D19;
+    text-decoration: none;
+}
+.heart{
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.add-fav {
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #ddd;
+    position: relative;
+    transition: all .5s ease;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 1px #eee;
+    &:hover {
+        background-color:  #ddd;
+      }
+    .material-icons {
+        font-size: 24px;
+        color: #666;
+        position: relative;
+        transition: all .5s ease-in-out;
+      }
+      input[type="checkbox"] { 
+        position: absolute;
+        opacity: 0;
+        &:checked + .material-icons {
+          color: red;
+        }
+      }
+    }

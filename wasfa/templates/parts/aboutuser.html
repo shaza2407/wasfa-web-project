@@ -1,0 +1,37 @@
+{%load static%}
+
+{% include 'parts/user_navbar.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="icon" type="image/x-icon" href="./img/wasfa-high-resolution-logo-black.png">
+    <link rel="stylesheet" href="{% static 'css/styling.css'%}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+</head>
+<body style="background-image: url(./img/back2.jpg); color: darkolivegreen; margin: 0; padding: 0;">
+
+<center>
+    <h1>About us</h1>
+    <h2> Wasfa is here to help you cook delicious meals with less
+        <br> stress and more joy.We offer recipes for home cooks,
+        <br> by home cooks. Helping create “kitchen wins” is what
+        <br> we're about. Wasfa was founded in 2024 as a home cooking
+        <br> blog to record our favorite family recipes.
+        <br> Today, Wasfa has grown into a trusted resource for
+        <br> home cooks with more than 3,000 tested recipes, guides, 
+        <br>and meal plans, drawing over 15 million readers each month
+        <br>from around the world. We're supported by a diverse group of
+        <br> recipe developers,food writers, recipe and product testers
+        <br>, photographers, and other creative professionals. </h2>
+</center>
+<br>
+<br><br>
+</body>
+</html>
+{% endblock content %}
+{% include 'parts/footer.html' %}

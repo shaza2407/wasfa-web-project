@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/recipes-out-style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/wasfa-high-resolution-logo-black.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styling.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Recipes</title>
+</head>
+<body style="padding: 0; margin: 0;">
+    {% include 'parts/user_navbar.html' %}
+    <center>
+        <h1>Your Favorite Recipes</h1>
+        <hr>
+        <br>
+        <div id="container">
+            <table>
+                {% for favorite in favorites %}
+                <tr id="{{ favorite.recipe.id }}">
+                    <td>{{ favorite.recipe.name }}</td>
+                    <td>{{ favorite.recipe.course_type }}</td>
+                    <td><a href="{% url 'recipe_detail' slug=favorite.recipe.slug %}">View Recipe</a></td>
+                    <td>
+                        <button class="notactive" onclick="removefromfavorite('{{ favorite.recipe.id }}')">Remove from Favorite</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </center>
+    </div>
+    <br>
+    <script src="{% static 'JS/favorite.js' %}"></script>
+    {% include 'parts/footer.html' %}
+</body>
+</html>

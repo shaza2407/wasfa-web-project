@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="icon" type="image/x-icon" href="./img/wasfa-high-resolution-logo-black.png">
+    <link rel="stylesheet" href="{% static './css/styling.css'%}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styling.css' %}">
+    <link rel="icon" type="image/x-icon" href="./img/wasfa-high-resolution-logo-black.png">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+{% block content%}
+<body style="padding: 0; margin: 0;">
+    <ul id="nav">
+        <div class="nav-img"> 
+            <img src="{% static './imgs/white-logo.png'%}" alt="no nav photo" width="120px">
+        </div>
+       
+    </ul>
+<center>
+<h1>Edit Recipe</h1>
+<form id="edit-recipe-form">
+    {{ recipe_form.as_p }}
+    {{ ingredient_formset.management_form }}
+    {% for form in ingredient_formset %}
+        {{ form.as_p }}
+    {% endfor %}
+    {{ step_formset.management_form }}
+    {% for form in step_formset %}
+        {{ form.as_p }}
+    {% endfor %}
+    <button type="submit">Save</button>
+
+</form>
+<br><br>
+</center>
+<script>
+document.getElementById('edit-recipe-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = new FormData(this);
+    fetch(window.location.href, {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': '{{ csrf_token }}',
+        },
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            alert(data.message);
+            window.location.href = '/user-recipes.html';
+        } else {
+            alert(data.message);
+        }
+    });
+});
+</script>
+</body>
+{% endblock content%}
+{% include 'parts\footer.html'%}

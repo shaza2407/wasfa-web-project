@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styling.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/wasfa-high-resolution-logo-black.png' %}">
+</head>
+{% include 'parts\unsigned.html'%}
+{% block content%}
+<br>
+<br>
+<body style="padding: 0; margin: 0;">
+    <div class="container">
+        <img src="{% static 'imgs/wasfa-high-resolution-logo-black-transparent.png' %}" alt="Logo" style="width: 250px; margin-left: 35px;">
+        <div>
+    
+            <form method="post" >
+                {% csrf_token %}
+                <div>
+                    <input type="email" id="email" name="email" required placeholder="E-mail">
+                    <div class="warning"></div>
+                </div>
+                <div>
+                    <input type="password" id="password" name="password" required placeholder="Password"><br>
+                </div>
+            {% if messages %}
+                <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+                </ul>
+            {% endif %}   
+                <div>
+                    <input type="submit" value="Log in" style="background-color: #b99470; color: white; padding: 14px 20px; margin: 8px 0; border: none; border-radius: 4px; cursor: pointer; width: 100%;">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock content %}
+

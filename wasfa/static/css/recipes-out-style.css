@@ -1,0 +1,105 @@
+body{
+    background-color: #FEFAE0; 
+    font-size: large;
+}
+body {
+  background-color: #FEFAE0; 
+    font-size: large;
+  margin: 0;
+  padding-bottom: 100px; /* Height of the footer */
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+*{
+  font-family: "Times New Roman", Times, serif;
+}
+h1{
+    text-align: center; 
+    color: #5F6F52;
+}
+h2{
+  color: #783D19; 
+  text-align: center;
+}
+h3{
+  color: #C4661F;
+}
+hr{
+  color: #783D19;
+}
+.imgout{
+  border-radius: 25px;
+  width: 230px;
+  height: 230px;
+  margin-right: 15px;
+}
+.imgUp{
+  height: 450px; 
+  width: 350px; 
+  margin-right: 15px;
+}
+.imgdown{
+  height: 800px;
+  margin-left: 30px;
+}
+P{
+  text-decoration: none;
+  color: #9c6d3d;
+}
+.recipeBox{
+    padding: 20px;
+    border: 2px solid #783D19;
+    border-radius: 25px;
+    display: flex; 
+    border-style: ridge;
+    
+}
+:hover.recipeBox{
+    background-color: #F9EBC7;
+    margin: 10px;
+}
+.linkBox{
+    color: #783D19;
+    text-decoration: none;
+}
+.heart{
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+th{
+  color: #783D19;
+  padding: 40px;
+  font-size: 20px;
+}
+td{
+  padding: 40px;
+  color: #C4661F;
+}
+a{
+  color: #C4661F;
+  text-decoration: none;
+  &:hover{
+    color: #783D19;
+    text-decoration: underline;
+  }
+}
+.recipee{
+  display: flex;
+  align-items: center;
+}
+button{
+  background-color: darkolivegreen;
+  border: none;
+  color: #FEFAE0;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  &:hover{
+    color: #783D19;
+  }
+}

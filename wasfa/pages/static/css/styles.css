@@ -1,0 +1,27 @@
+.photo {
+  border-image:right;
+ 
+  margin-left: 1600px;
+}
+
+@keyframes dropToRight {
+  0% {
+    transform: translateY(-50%) translateX(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-50%) translateX(50%);
+    opacity: 1;
+  }
+}
+
+@keyframes dropToLeft {
+  0% {
+    transform: translateY(-50%) translateX(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-50%) translateX(-150%);
+    opacity: 1;
+  }
+}

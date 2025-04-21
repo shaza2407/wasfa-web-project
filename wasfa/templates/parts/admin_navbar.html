@@ -1,0 +1,15 @@
+{%load static %}
+<ul id="nav">
+    <div class="nav-img"> 
+        <a href="./adminhomepage.html"><img src="{% static './imgs/white-logo.png'%}" alt="no nav photo" width="120px"></a>
+    </div>
+    <div class="nav-text">
+        <li><a href="templates\parts\adminhomepage.html">Home</a></li>
+        <li><a href="./aboutadmin.html">About</a></li>
+        <li><a href="./user-recipes.html">My Recipes</a></li>
+        <li><a href="./add-recipe">Add New Recipe</a></li>
+        <li><a href="./HomePage.html">Log Out</a></li>
+    </div>
+</ul>
+{% block content %}
+{% endblock content %}

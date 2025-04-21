@@ -1,0 +1,41 @@
+<!-- parts/search_results.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/recipes-out-style.css'%}">
+    <link rel="icon" type="image/x-icon" href="./img/wasfa-high-resolution-logo-black.png">
+    <link rel="stylesheet" href="{% static './css/styling.css'%}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body style="padding: 0px; margin: 0px;">
+    <center>
+        <br><br><br>
+    <h1>Search Results</h1>
+    {% if query %}
+        <p>Search results for "{{ query }}":</p>
+    {% else %}
+        <p>All recipes:</p>
+    {% endif %}
+    <table>
+        {% for recipe in recipes %}
+        <tr id="{{recipe.id}}">
+            <td>{{recipe.name}}</td>
+            <td>{{recipe.course_type}}</td>
+            <td ><a href="{% url 'recipe_detail' slug=recipe.slug %}">View Recipe</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+<br><br><br><br><br>
+{% include 'parts\footer.html'%}
+</body>
+</html>

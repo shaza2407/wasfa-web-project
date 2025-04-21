@@ -1,0 +1,64 @@
+body{
+    
+    font-family: Arial, sans-serif;
+    background-color: #f9ebc75d; 
+}
+.container {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+.container > div {
+margin-top: 20px;
+}
+
+
+
+
+form {
+text-align: center;
+background-color: #f9ebc7;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.008);
+max-width: 600px;
+width: 100%;
+}
+
+/* Styling the logo */
+.logo {
+
+width: 250px; 
+height: 100px; 
+border-radius: 50%; 
+object-fit: cover; 
+}
+
+/* Styling the input fields */
+input[type="email"],
+input[type="password"] {
+width: 100%;
+padding: 10px;
+margin: 5px 0;
+box-sizing: border-box;
+border: 1px solid #ccc;
+border-radius: 3px;
+}
+
+/* Styling the submit button */
+
+input[type="submit"] {
+background-color: #b99470;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+width: 100%;
+}
+input[type="submit"]:hover {
+background-color: #b9947028;
+}
